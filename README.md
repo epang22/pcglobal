@@ -2,6 +2,7 @@
 Algorithm for fitting pattern centers of EBSD patterns. Fits orientation and pattern center by optimization in 6D space using the SNOBFIT global optimization algorithm. Uses the EMsoft package to simulate EBSD patterns.
 
 More information about EMsoft can be found at: https://github.com/EMsoft-org/EMsoft
+
 More information about the SNOBFIT algorithm can be found at: https://www.mat.univie.ac.at/~neum/software/snobfit/
 
 Publication coming soon!

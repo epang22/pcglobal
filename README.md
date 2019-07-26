@@ -17,8 +17,8 @@ Use instructions:
 1. Before performing a fitting run, you need to precompute the master pattern using EMsoft. See here for instructions: https://github.com/EMsoft-org/EMsoft/wiki/EBSD-Example
 2. Open 'RunPCfit.m'.  *There is also a version 'RunPCfit_loop.m' that allows you to loop through multiple image files.
 3. Enter the parameter values in the section labeled 'INPUT PARAMETERS'.
-    a. homepath: This is EMsoft's EMdatapathname for your installation. If you are not sure where this is, you can find it at: ~/.config/EMsoft/EMsoftConfig.json
-    b. Other parameters are explained in the comments in the script
+a. homepath: This is EMsoft's EMdatapathname for your installation. If you are not sure where this is, you can find it at: ~/.config/EMsoft/EMsoftConfig.json
+b. Other parameters are explained in the comments in the script
 4. Run the script.
 
 

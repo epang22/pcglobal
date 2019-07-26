@@ -13,6 +13,7 @@ addpath('minq5')
 %%% INPUT PARAMETERS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Define paths
 data.homepath = '/home/jonathan/epang/EMsoftfiles/EMdata/';  % path to EMdatapathname
+  %^This is EMsoft's EMdatapathname for your installation. If you are not sure where this is, you can find it at: ~/.config/EMsoft/EMsoftConfig.json
 data.path = 'testdata/';  % path within EMdatapathname to find experimental patterns and to save data
 data.tmppath = 'tmp/';   % path within EMdatapathname for creation of temp files
 

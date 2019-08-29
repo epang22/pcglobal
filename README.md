@@ -1,12 +1,9 @@
 # pcglobal
-Algorithm for fitting pattern centers of EBSD patterns. Fits orientation and pattern center by optimization in 6D space using the SNOBFIT global optimization algorithm. This helps prevent getting trapped in local minima, which is an issue for standard downhill search methods. Uses the EMsoft package to simulate EBSD patterns.
+Algorithm for fitting pattern centers of EBSD patterns. Fits orientation and pattern center by optimization in 6D space using the SNOBFIT global optimization algorithm. This helps prevent getting trapped in local minima, which is an issue for standard downhill search methods. Uses the EMsoft package to simulate EBSD patterns. Preprint of our paper describing this method and its performance can be found at: https://arxiv.org/abs/1908.10692. *Patterns used in this paper can be found in the folder /paperdata/
 
 More information about EMsoft can be found at: https://github.com/EMsoft-org/EMsoft
 
 More information about the SNOBFIT algorithm can be found at: https://www.mat.univie.ac.at/~neum/software/snobfit/
-
-Preprint of our paper describing this method and its performance: https://arxiv.org/abs/1908.10692
-*Patterns used in this paper can be found in the folder /paperdata/
 
 Installation instructions:
 1. Download the minq5 package from: https://www.mat.univie.ac.at/~neum/software/minq/minq5.tar.gz. Extract in a folder named 'minq5' located in the 'pcglobal' directory.

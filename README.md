@@ -8,8 +8,9 @@ More information about EMsoft can be found at: https://github.com/EMsoft-org/EMs
 More information about the SNOBFIT algorithm can be found at: https://www.mat.univie.ac.at/~neum/software/snobfit/
 
 Installation instructions:
-1. Download the minq5 package from: https://www.mat.univie.ac.at/~neum/software/minq/minq5.tar.gz. Extract in a folder named 'minq5' located in the 'pcglobal' directory.
-2. Install EMsoft. Code and installation instructions can be found at: https://github.com/EMsoft-org/EMsoft
+1. Download/clone this repository in any location.
+2. Download the minq5 package from: https://www.mat.univie.ac.at/~neum/software/minq/minq5.tar.gz. Extract in a folder named 'minq5' located in the 'pcglobal' directory.
+3. Install EMsoft. Code and installation instructions can be found at: https://github.com/EMsoft-org/EMsoft
 
 
 Use instructions:

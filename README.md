@@ -5,8 +5,8 @@ More information about EMsoft can be found at: https://github.com/EMsoft-org/EMs
 
 More information about the SNOBFIT algorithm can be found at: https://www.mat.univie.ac.at/~neum/software/snobfit/
 
-Publication coming soon!
-
+Preprint of our paper describing this method and its performance: https://arxiv.org/abs/1908.10692
+*Patterns used in this paper can be found in the folder /paperdata/
 
 Installation instructions:
 1. Download the minq5 package from: https://www.mat.univie.ac.at/~neum/software/minq/minq5.tar.gz. Extract in a folder named 'minq5' located in the 'pcglobal' directory.
@@ -22,7 +22,7 @@ Use instructions:
 4. Run the script.
 
 
-I have included some examples to learn how to use the package. This data is located in the folder 'testdata'. You need to take a few additional steps to be able to perform a fitting run on this data:
+I have included some examples to learn how to use the package. This data is located in the folder /testdata/. You need to take a few additional steps to be able to perform a fitting run on this data:
 1. Move the 'Ni.xtal' file to your EMsoft xtal folder. If you are not sure where this is, you can find it at: ~/.config/EMsoft/EMsoftConfig.json
 2. Download 'Ni.tar.gz' from: https://kilthub.cmu.edu/articles/Data_Sets_and_Analysis_Results_Accompanying_a_Dictionary_Indexing_Tutorial_Paper/7792505. Copy the file 'Ni-master-20kV.h5' to any location within EMsoft's EMdatapathname.
 

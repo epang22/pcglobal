@@ -23,8 +23,11 @@ Use instructions:
 
 
 I have included some examples to learn how to use the package. This data is located in the folder /testdata/. You need to take a few additional steps to be able to perform a fitting run on this data:
-1. Move the 'Ni.xtal' file to your EMsoft xtal folder. If you are not sure where this is, you can find it at: ~/.config/EMsoft/EMsoftConfig.json
-2. Download 'Ni.tar.gz' from: https://kilthub.cmu.edu/articles/Data_Sets_and_Analysis_Results_Accompanying_a_Dictionary_Indexing_Tutorial_Paper/7792505. Copy the file 'Ni-master-20kV.h5' to any location within EMsoft's EMdatapathname.
+1. Download 'Ni.tar.gz' from: https://kilthub.cmu.edu/articles/Data_Sets_and_Analysis_Results_Accompanying_a_Dictionary_Indexing_Tutorial_Paper/7792505. Copy the file 'Ni-master-20kV.h5' to any location within EMsoft's EMdatapathname.
+2. Download 'Xtals.tar.gz' from: https://kilthub.cmu.edu/articles/Data_Sets_and_Analysis_Results_Accompanying_a_Dictionary_Indexing_Tutorial_Paper/7792505
+Move the 'Ni.xtal' file to your EMsoft xtal folder. 
+3. Copy the folder 'testdata' to any location within EMsoft's EMdatapathname.
+You can find the location of your xtal and EMdatapathname folders at: ~/.config/EMsoft/EMsoftConfig.json
 
 
 Feel free to email me at epang22@gmail.com if you have any questions/difficulties/suggestions.

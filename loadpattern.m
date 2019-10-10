@@ -2,8 +2,13 @@ function loadpattern(data)
 %LOADPATTERN Load pattern image file, bin, and save as binary .data file
 %%% Inputs:
 % -data: struct containing location of input/output files and other relevant info
+% Assumes image is as captured from a TSL/EDAX system. Pattern recorded on a Bruker 
+% or Oxford system may require a flip/rotation (not currently implemented, but you 
+% can manually do this to agree with TSL coordinate system)
 %
-% Last updated: 7/24/19 (Edward Pang, MIT)
+% Original: 7/24/19 (Edward Pang, MIT)
+% Change log:
+% -10/10/19 ELP: Comment out flipup to make coordinate system agree with EMsoft 4.3
 
     % Extract parameters from struct 'data'
     homepath = data.homepath;
@@ -48,7 +53,8 @@ function loadpattern(data)
     % Read in image
     fid = fopen(outpath,'w');       % Open .data file to write   
     im = single(img_exp_bin);    % Convert data to single precision
-    im = flipud(im);    % Flip image upside down (TSL has patterns upside down)
+    %im = flipud(im);    % Flip image upside down (TSL has patterns upside down)
+        %%% Need above line for EMsoft 4.0, not for EMsoft 4.3
     % Make a 1D vector of image
     P = zeros(imageheight*imagewidth,1);     % Initialize vector
     for jj = 1:imageheight

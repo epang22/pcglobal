@@ -70,7 +70,8 @@ function PCfit_snobfit( data )
 % data.r = min(data.numsx,data.numsy)/(2*data.binning);        % radius of circular mask (after binning)
 % data.nthreads = 8; % for EMEBSDDI
 %
-% Last updated: 7/24/19 (Edward Pang, MIT)
+% Original: 7/24/19 (Edward Pang, MIT)
+% -11/16/19 ELP: fix bug, rename output file if exists
 
 
 %%% Extract input parameters from struct 'data'
@@ -120,9 +121,9 @@ if exist(img_exp_path,'file')==2
     % Check if output files already exist. If so, rename
     if exist(h5path,'file')==2 || exist(logpath,'file')==2
         while exist(h5path,'file')==2 || exist(logpath,'file')==2
-            h5output = fullfile(h5output(1:end-3),'_1.h5');
+            h5output = [h5output(1:end-3) '_1.h5'];
             h5path = fullfile(homepath,path,h5output);    % full path to h5 output file
-            logoutput = fullfile(logoutput(1:end-4),'_1.txt');
+            logoutput = [logoutput(1:end-4) '_1.txt'];
             logpath = fullfile(homepath,path,logoutput);    % full path to log output file
         end
         fprintf('h5 output file renamed to: %s\n',h5path);

@@ -1,7 +1,9 @@
 # pcglobal
 Algorithm for fitting pattern centers of EBSD patterns. Fits orientation and pattern center by optimization in 6D space using the SNOBFIT global optimization algorithm. This helps prevent getting trapped in local minima, which is an issue for standard downhill search methods. Uses the EMsoft package to simulate EBSD patterns. 
 
-Preprint of our paper describing this method and its performance can be found at: https://arxiv.org/abs/1908.10692. *Patterns used in this paper can be found in the folder /paperdata/
+Preprint of our paper describing this method and its performance can be found at: https://arxiv.org/abs/1908.10692.
+Final version of the paper published in Ultramicroscopy can be found at: https://www.sciencedirect.com/science/article/pii/S030439911930292X
+*Patterns used in this paper can be found in the folder /paperdata/
 
 More information about EMsoft can be found at: https://github.com/EMsoft-org/EMsoft
 
@@ -30,4 +32,4 @@ Copy the 'Ni.xtal' file to your EMsoft xtal folder.
 You can find the location of your xtal and EMdatapathname folders at: ~/.config/EMsoft/EMsoftConfig.json
 
 
-Feel free to email me at epang22@gmail.com if you have any questions/difficulties/suggestions.
+Feel free to email me at epang@mit.edu if you have any questions/difficulties/suggestions.

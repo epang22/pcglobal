@@ -1,7 +1,7 @@
 function emebsd_singlepattern(L,xpc,ypc,euler,outpath,options)
 %EMEBSD_WRAPPER_FUN
 % Simulate a single pattern using EMsoft's EMEBSD program and save to disk
-% 2/13/20
+% Original: 2/13/20 (Edward Pang, MIT)
 %
 % Inputs: 
 % -L (um)

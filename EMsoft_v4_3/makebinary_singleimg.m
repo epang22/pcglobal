@@ -5,8 +5,7 @@ function makebinary_singleimg(img_exp_path, outpath, data)
 % -outpath: full path to .data file to save as
 % -data: struct containing binning, numsx, numsy
 %
-% 12/16/19
-% Edit 1/7/20 ELP: Tia computer EMsoft v4.3, flipup
+% Original: 12/16/19 (Edward Pang, MIT)
 
 
 % extract data
@@ -27,22 +26,12 @@ end
 imagewidth = numsx/binning;        % Width (px) of patterns
 imageheight = numsy/binning;        % Height (px) of patterns
 
-% bin it down
-% img_exp_bin = zeros(numsy/binning,numsx/binning,'uint8');   % initialize
-% if binning>1
-%     for kk=0:binning:numsy-binning
-%         for ll=0:binning:numsx-binning
-%             img_exp_bin(kk/binning+1,ll/binning+1) = sum(sum(img_exp(kk+1:kk+binning,ll+1:ll+binning)))/binning^2;
-%         end
-%     end
-% else
-    img_exp_bin = img_exp;
-% end
 
 % Read in image
 fid = fopen(outpath,'w');       % Open .data file to write   
-im = single(img_exp_bin);    % Convert data to single precision
+im = single(img_exp);    % Convert data to single precision
 % im = flipud(im);    % Flip image upside down (TSL has patterns upside down)
+	%%% Need above line for EMsoft 4.0, not for EMsoft 4.3
 % Make a 1D vector of image
 p = zeros(imageheight*imagewidth,1);     % Initialize vector
 for jj = 1:imageheight

@@ -33,8 +33,8 @@ data.masterfile = 'DItutorial_Ni-master-20kV/Ni-master-20kV.h5';   % master patt
 
 %%% Parameters you don't need to change often %%%
 % Paths for this computer
-data.homepath = '/home/eddie/EMsoftfiles/EMData/';  % path to EMdatapathname (don't need to touch after initial setup of EMsoft)
-data.tmppath = 'tmp/';   % path within EMdatapathname for creation of temp files (you need to manually create this directory)
+homepath = '/home/eddie/EMsoftfiles/EMData/';  % path to EMdatapathname (don't need to touch after initial setup of EMsoft)
+tmppath = 'tmp/';   % path within EMdatapathname for creation of temp files (you need to manually create this directory)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 

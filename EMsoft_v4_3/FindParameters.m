@@ -4,7 +4,7 @@
 % Generates a simulated pattern with specified parameters, rather than 
 % loading in an experimental pattern, to ensure that you scan through the 
 % peak tip to get accurate FWHM
-% 2/13/20
+% 2/13/20 (Edward Pang, MIT)
 
 clear
 

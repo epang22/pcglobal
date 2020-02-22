@@ -9,51 +9,62 @@
 clear
 
 %%% INPUT PARAMETERS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-homepath = '/home/eddie/EMsoftfiles/EMData/';  % path to EMdatapathname
-tmppath = 'tmp/';   % path within EMdatapathname for creation of temp files
-
-
 % Center of linescan
 %  Input any values for pattern center in the vicinity you care about
-%  Euler angles doesn't really matter
-L = 2500;  % in microns
-xpc = 10;    % in px
-ypc = 43;   % inpx
+%  Euler angles don't really matter
+L = 15000;  % in microns
+xpc = 0;    % in px
+ypc = 80;   % inpx
 euler = [283.164 93.5072 339.491];  % euler angles (deg)
-
 
 % linescan parameters
 N = 50;     % # of points in each linescan
-delta_L = 500;  % linescan will check +/- this amount, in microns
+delta_L = 2500;  % linescan will check +/- this amount, in microns
 delta_xpc = 25;   % " in px
 delta_ypc = 25;   % " in px
 delta_angles = 5;     % " in degrees
 
+% EMsoft parameters for the master pattern
+energymin = 10.0;   % energy range in the intensity summation (keV)
+energymax = 20.0;
+masterfile = 'DItutorial_Ni-master-20kV/Ni-master-20kV.h5';   % master pattern input file, path relative to EMdatapathname
 
-% Other EMsoft simulation parameters
-thetac = 8;   % tilt angle of the camera (positive below horizontal, degrees)
-delta = 7.4*480/416;   % CCD pixel size on the scintillator surface (microns)
-numsx = 416;    % number of CCD pixels along x and y
-numsy = 416;
-omega = 0;      % angle between normal of sample and detector
-energymin = 15.0;   % energy range in the intensity summation (keV)
-energymax = 30.0;
-eulerconvention = 'tsl';    % 'tsl' or 'hkl' Euler angle convention parameter
-masterfile = '200106_Cu_fcc_30kV_60deg_master/Cu_fcc-master-30kV.h5';   % master pattern input file, path relative to EMdatapathname
-poisson = 'n';      % include poisson noise? (y/n)
+%%% EMEBSDDI parameters
+% These parameters affect how long the calculations will take. Also, some combinations give errors (bugs in EMsoft).
+% Use TestErrorsTimings.m to determine appropriate parameters
+nthreads = 8; % number of threads
+% number of files arranged in column for dp on GPU (multiples of 16 perform better)
+numsingle1 = 32;   % Must be compatible with nthreads, N_ori=1
+numsingle2 = 80;   % Must be compatible with nthreads, N_ori=3*N
+
+progress = 10;  % print progress every this many iterations (out of 3*N)
+
+
+
+%%% Parameters you don't need to change often %%%
+% Paths for this computer
+data.homepath = '/home/eddie/EMsoftfiles/EMData/';  % path to EMdatapathname (don't need to touch after initial setup of EMsoft)
+data.tmppath = 'tmp/';   % path within EMdatapathname for creation of temp files (you need to manually create this directory)
+
+% Detector parameters
+data.thetac = 10;   % tilt angle of the camera (positive below horizontal, degrees)
+data.delta = 59.2;   % CCD pixel size on the scintillator surface (microns)
+data.numsx = 480;    % number of CCD pixels along x and y
+data.numsy = 480;
+data.omega = 0;      % angle between normal of sample and detector
 binning = 1;        % binning mode (1, 2, 4, 8). Simulated image size will be numsx/binning x numsy/binning
+
+% Some EMsoft parameters for dot product computations
+eulerconvention = 'tsl';    % 'tsl' or 'hkl' Euler angle convention parameter
+poisson = 'n';      % include poisson noise? (y/n)
 scalingmode = 'gam'; % intensity scaling mode: 'not'=no scaling, 'lin'=linear, 'gam'=gamma
 gammavalue = 0.33;  % gamma correction factor
 maskpattern = 'y';        % use circular mask? y or n
 r = min(numsx,numsy)/(2*binning);        % radius of circular mask (after binning)
-
-nthreads = 8; % for EMEBSDDI
-% number of files arranged in column for dp on GPU (multiples of 16 perform better), for EMEBSDDI
-numsingle1 = 32;   % for PC linescan iterations (must be compatible with nnk=1)
-numsingle2 = 80;   % for orientation linescan iterations (must be compatible with nnk=3N)
-
-progress = 10;  % print progress every this many iterations
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DO NOT EDIT BELOW THIS LINE (unless you are doing code development) %
+
+
 
 totaltime = tic;
 

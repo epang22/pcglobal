@@ -39,6 +39,7 @@ function dp = emebsddi_dp(L,xpc,ypc,euler,options)
 % Original: 7/24/19 (Edward Pang, MIT)
 % Change log:
 % 12/17/19 ELP: add ability to specify size of vector sent to GPU
+% 4/29/20 ELP: add ability to specify hipassw and nregions
 
 
 % Name paths
@@ -71,8 +72,8 @@ fprintf(fid,' nosm = 1,\n');
 fprintf(fid,' maskfile = ''undefined'',\n');
 fprintf(fid,' maskpattern = ''%s'',\n',options.maskpattern);
 fprintf(fid,' maskradius = %.0f,\n',options.r);
-fprintf(fid,' hipassw = 0.05,\n');      % hi pass filter w param; 0.05 is reasonable
-fprintf(fid,' nregions = 10,\n');       % # of regions for adaptive histogram equalization
+fprintf(fid,' hipassw = %g,\n',options.hipassw);
+fprintf(fid,' nregions = %g,\n',options.nregions);
 
 fprintf(fid,' ncubochoric = 40,\n');
 fprintf(fid,' L = %g,\n',L);

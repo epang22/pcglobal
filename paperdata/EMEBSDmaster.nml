@@ -1,0 +1,21 @@
+&EBSDmastervars
+! smallest d-spacing to take into account [nm]
+ dmin = 0.05,
+! number of pixels along x-direction of the square master pattern  (2*npx+1 = total number)
+ npx = 500,
+! name of EMMCOpenCL output file to be used to copy the MC data from for this master pattern run;
+! This can be used to perform multiple master pattern runs starting from the same MC data set without
+! having to rerun the MC computation.  Leave this variable set to 'undefined' if not needed.
+ copyfromenergyfile = 'undefined',
+! name of the energy statistics file produced by EMMCOpenCL program; relative to EMdatapathname;
+! this file will also contain the output data of the master program
+ energyfile = '180913_Fe_bcc_20kV_master/Fe_bcc-master-20kV.h5',
+! number of OpenMP threads
+ nthreads = 16,
+! do you wish to receive a notification (Email or Slack) when the program completes ?
+ Notify = 'On',
+! restart computation ?
+ restart = .FALSE.,
+! create output file with uniform master patterns set to 1.0 (used to study background only)
+ uniform = .FALSE.,
+ /

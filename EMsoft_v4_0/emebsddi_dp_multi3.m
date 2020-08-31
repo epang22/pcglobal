@@ -3,7 +3,6 @@ function dp = emebsddi_dp_multi3(euler,options,verbose)
 % Run EMsoft EMEBSDDI program to simulate EBSD pattern for multiple orientations,
 % single set of detector parameters, compute dot product with a multiple
 % experimental patterns
-% Compared to _multi2, can accommodate maps with arbitrary ipf
 % Inputs: 
 % >Np=number of patterns stored in options.img_exp2
 % >euler=[phi1 PHI phi2

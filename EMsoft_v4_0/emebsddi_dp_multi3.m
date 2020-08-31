@@ -43,7 +43,9 @@ function dp = emebsddi_dp_multi3(euler,options,verbose)
 % Outputs:
 % >dp: N_angles x Np array of dp in same order as euler, each col is a map point
 %
-% 1/12/20
+% Original: 1/12/20 (Edward Pang, MIT)
+% Change log:
+% 8/31/20 ELP: fprintf change %g (6 sig figs) to %.8f for euler angles, L, xpc, ypc
 
 
 % Name paths
@@ -79,13 +81,13 @@ fprintf(fid,' hipassw = %g,\n',options.hipassw);
 fprintf(fid,' nregions = %g,\n',options.nregions);
 
 fprintf(fid,' ncubochoric = 40,\n');
-fprintf(fid,' L = %g,\n',options.L);
+fprintf(fid,' L = %.8f,\n',options.L);
 fprintf(fid,' thetac = %g,\n',options.thetac);
 fprintf(fid,' delta = %g,\n',options.delta);
 fprintf(fid,' numsx = %g,\n',options.numsx);
 fprintf(fid,' numsy = %g,\n',options.numsy);
-fprintf(fid,' xpc = %g,\n',options.xpc);
-fprintf(fid,' ypc = %g,\n',options.ypc);
+fprintf(fid,' xpc = %.8f,\n',options.xpc);
+fprintf(fid,' ypc = %.8f,\n',options.ypc);
 fprintf(fid,' omega = %g,\n',options.omega);
 fprintf(fid,' energymin = %g,\n',options.energymin);
 fprintf(fid,' energymax = %g,\n',options.energymax);
@@ -129,7 +131,7 @@ fid = fopen(eulerpath,'w');
 fprintf(fid,'eu\n');
 fprintf(fid,'%.0f\n',size(euler,1));
 for ii=1:N_angles
-    fprintf(fid,' %g %g %g\n',euler(ii,1),euler(ii,2),euler(ii,3));
+    fprintf(fid,' %.8f %.8f %.8f\n',euler(ii,1),euler(ii,2),euler(ii,3));
 end
 fclose(fid);
 

@@ -1,8 +1,6 @@
 function emebsd_singlepattern(L,xpc,ypc,euler,outpath,options)
 %EMEBSD_WRAPPER_FUN
 % Simulate a single pattern using EMsoft's EMEBSD program and save to disk
-% Original: 2/13/20 (Edward Pang, MIT)
-%
 % Inputs: 
 % -L (um)
 % -xpc (px)
@@ -27,9 +25,11 @@ function emebsd_singlepattern(L,xpc,ypc,euler,outpath,options)
 % options.binning = 8;        % binning mode (1, 2, 4, 8)
 % options.scalingmode = 'gam'; % intensity scaling mode: 'not'=no scaling, 'lin'=linear, 'gam'=gamma
 % options.gammavalue = 0.33;  % gamma correction factor
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% DO NOT EDIT BELOW THIS LINE (unless you are doing code development) %
+%
+% Original: 2/13/20 (Edward Pang, MIT)
+% Change log:
+% 8/31/20 ELP: fprintf change %g (6 sig figs) to %.8f for euler angles, L, xpc, ypc;
+%     change thetac, delta, omega, energymin, energymax to %g
 
 
 % some parameters that you don't need to specify
@@ -59,24 +59,24 @@ h5pathshort = fullfile(options.tmppath,'EBSDout.h5');
 fid = fopen(eulerpath,'w');
 fprintf(fid,'eu\n');
 fprintf(fid,'1\n');
-fprintf(fid,' %g %g %g\n',euler(1),euler(2),euler(3));
+fprintf(fid,' %.8f %.8f %.8f\n',euler(1),euler(2),euler(3));
 fclose(fid);
 
 
 % Create EMEBSD.nml file
 fid = fopen(nmlpath,'w');
 fprintf(fid,'&EBSDdata\n');
-fprintf(fid,' L = %.2f,\n',L);
-fprintf(fid,' thetac = %.1f,\n',options.thetac);
-fprintf(fid,' delta = %.1f,\n',options.delta);
+fprintf(fid,' L = %.8f,\n',L);
+fprintf(fid,' thetac = %g,\n',options.thetac);
+fprintf(fid,' delta = %g,\n',options.delta);
 fprintf(fid,' numsx = %g,\n',options.numsx);
 fprintf(fid,' numsy = %g,\n',options.numsy);
-fprintf(fid,' xpc = %.4f,\n',xpc);
-fprintf(fid,' ypc = %.4f,\n',ypc);
-fprintf(fid,' omega = %.1f,\n',options.omega);
+fprintf(fid,' xpc = %.8f,\n',xpc);
+fprintf(fid,' ypc = %.8f,\n',ypc);
+fprintf(fid,' omega = %g,\n',options.omega);
 fprintf(fid,' alphaBD = 0.0,\n');
-fprintf(fid,' energymin = %.1f,\n',options.energymin);
-fprintf(fid,' energymax = %.1f,\n',options.energymax);
+fprintf(fid,' energymin = %g,\n',options.energymin);
+fprintf(fid,' energymax = %g,\n',options.energymax);
 fprintf(fid,' includebackground = ''y'',\n');
 fprintf(fid,' anglefile = ''%s'',\n',eulerpathshort);
 fprintf(fid,' anglefiletype = ''orientations'',\n');

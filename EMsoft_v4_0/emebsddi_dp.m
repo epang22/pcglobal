@@ -40,6 +40,7 @@ function dp = emebsddi_dp(L,xpc,ypc,euler,options)
 % Change log:
 % 12/17/19 ELP: add ability to specify size of vector sent to GPU
 % 4/29/20 ELP: add ability to specify hipassw and nregions
+% 8/31/20 ELP: fprintf change %g (6 sig figs) to %.8f for euler angles, L, xpc, ypc
 
 
 % Name paths
@@ -76,13 +77,13 @@ fprintf(fid,' hipassw = %g,\n',options.hipassw);
 fprintf(fid,' nregions = %g,\n',options.nregions);
 
 fprintf(fid,' ncubochoric = 40,\n');
-fprintf(fid,' L = %g,\n',L);
+fprintf(fid,' L = %.8f,\n',L);
 fprintf(fid,' thetac = %g,\n',options.thetac);
 fprintf(fid,' delta = %g,\n',options.delta);
 fprintf(fid,' numsx = %g,\n',options.numsx);
 fprintf(fid,' numsy = %g,\n',options.numsy);
-fprintf(fid,' xpc = %g,\n',xpc);
-fprintf(fid,' ypc = %g,\n',ypc);
+fprintf(fid,' xpc = %.8f,\n',xpc);
+fprintf(fid,' ypc = %.8f,\n',ypc);
 fprintf(fid,' omega = %g,\n',options.omega);
 fprintf(fid,' energymin = %g,\n',options.energymin);
 fprintf(fid,' energymax = %g,\n',options.energymax);
@@ -127,7 +128,7 @@ fid = fopen(eulerpath,'w');
 fprintf(fid,'eu\n');
 fprintf(fid,'%.0f\n',size(euler,1));
 for ii=1:N_angles
-    fprintf(fid,' %g %g %g\n',euler(ii,1),euler(ii,2),euler(ii,3));
+    fprintf(fid,' %.8f %.8f %.8f\n',euler(ii,1),euler(ii,2),euler(ii,3));
 end
 fclose(fid);
 

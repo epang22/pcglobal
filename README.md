@@ -1,7 +1,7 @@
 # pcglobal
 Algorithm for fitting pattern centers of EBSD patterns. Fits orientation and pattern center by optimization in 6D space using the SNOBFIT global optimization algorithm. This helps prevent getting trapped in local minima, which is an issue for standard downhill search methods. Uses EMsoft to simulate EBSD patterns. 
 
-Our paper describing this method and its performance can be found at: https://arxiv.org/abs/1908.10692 (preprint) and https://www.sciencedirect.com/science/article/pii/S030439911930292X (final version in Ultramicroscopy)
+Our paper describing this method and its performance can be found at: https://arxiv.org/abs/1908.10692 (preprint) and https://www.sciencedirect.com/science/article/pii/S030439911930292X (peer-reviewed version in Ultramicroscopy)
 
 *Patterns used in this paper can be found in the folder 'paperdata/'*
 

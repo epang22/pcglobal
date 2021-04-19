@@ -60,7 +60,7 @@ poisson = 'n';      % include poisson noise? (y/n)
 scalingmode = 'gam'; % intensity scaling mode: 'not'=no scaling, 'lin'=linear, 'gam'=gamma
 gammavalue = 0.33;  % gamma correction factor
 hipassw = 0.05;     % hi pass filter w param; 0.05 is reasonable
-nregions = 10;      # of regions for adaptive histogram equalization
+nregions = 10;      % # of regions for adaptive histogram equalization
 maskpattern = 'y';        % use circular mask? y or n
 r = min(numsx,numsy)/(2*binning);        % radius of circular mask (after binning)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

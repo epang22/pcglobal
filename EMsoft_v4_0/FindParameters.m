@@ -4,7 +4,7 @@
 % Generates a simulated pattern with specified parameters, rather than 
 % loading in an experimental pattern, to ensure that you scan through the 
 % peak tip to get accurate FWHM
-% 2/13/20 (Edward Pang, MIT)
+% 4/19/21 (Edward Pang, MIT)
 
 clear
 
@@ -18,7 +18,7 @@ ypc = 80;   % inpx
 euler = [283.164 93.5072 339.491];  % euler angles (deg)
 
 % linescan parameters
-N = 50;     % # of points in each linescan
+N = 40;     % # of points in each linescan
 delta_L = 2500;  % linescan will check +/- this amount, in microns
 delta_xpc = 25;   % " in px
 delta_ypc = 25;   % " in px
@@ -43,15 +43,15 @@ progress = 10;  % print progress every this many iterations (out of 3*N)
 
 %%% Parameters you don't need to change often %%%
 % Paths for this computer
-data.homepath = '/home/eddie/EMsoftfiles/EMData/';  % path to EMdatapathname (don't need to touch after initial setup of EMsoft)
-data.tmppath = 'tmp/';   % path within EMdatapathname for creation of temp files (you need to manually create this directory)
+homepath = '/home/eddie/EMsoftfiles/EMData/';  % path to EMdatapathname (don't need to touch after initial setup of EMsoft)
+tmppath = 'tmp/';   % path within EMdatapathname for creation of temp files (you need to manually create this directory)
 
 % Detector parameters
-data.thetac = 10;   % tilt angle of the camera (positive below horizontal, degrees)
-data.delta = 59.2;   % CCD pixel size on the scintillator surface (microns)
-data.numsx = 480;    % number of CCD pixels along x and y
-data.numsy = 480;
-data.omega = 0;      % angle between normal of sample and detector
+thetac = 10;   % tilt angle of the camera (positive below horizontal, degrees)
+delta = 59.2;   % CCD pixel size on the scintillator surface (microns)
+numsx = 480;    % number of CCD pixels along x and y
+numsy = 480;
+omega = 0;      % angle between normal of sample and detector
 binning = 1;        % binning mode (1, 2, 4, 8). Simulated image size will be numsx/binning x numsy/binning
 
 % Some EMsoft parameters for dot product computations
@@ -59,6 +59,8 @@ eulerconvention = 'tsl';    % 'tsl' or 'hkl' Euler angle convention parameter
 poisson = 'n';      % include poisson noise? (y/n)
 scalingmode = 'gam'; % intensity scaling mode: 'not'=no scaling, 'lin'=linear, 'gam'=gamma
 gammavalue = 0.33;  % gamma correction factor
+hipassw = 0.05;     % hi pass filter w param; 0.05 is reasonable
+nregions = 10;      # of regions for adaptive histogram equalization
 maskpattern = 'y';        % use circular mask? y or n
 r = min(numsx,numsy)/(2*binning);        % radius of circular mask (after binning)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -92,6 +94,8 @@ options.poisson = poisson;
 options.binning = binning;
 options.scalingmode = scalingmode;
 options.gammavalue = gammavalue;
+options.hipassw = hipassw;
+options.nregions = nregions;
 options.nthreads = nthreads;
 options.maskpattern = maskpattern;
 options.r = r;

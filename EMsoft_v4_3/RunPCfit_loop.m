@@ -2,7 +2,9 @@
 % Use this script to fit pattern centers to a multiple patterns
 % Fill in INPUT PARAMETERS section with desired parameters
 % This version can loop through multiple images
-% 2/21/20 (Edward Pang, MIT)
+% Original: 2/21/20 (Edward Pang, MIT)
+% Change log:
+% -4/24/21 ELP: fix bug, now it actually summarizes average PC values
 
 clear
 
@@ -172,7 +174,13 @@ xpc = zeros(1,N);
 ypc = zeros(1,N);
 if data.h5outputlogical == 1
     for ii=1:N
+        % figure out names of output files
+        index = strfind(imagenames(ii),'.');
+        s = char(imagenames(ii));
+        s = s(1:index-1);
         h5output = strcat(outputprefix,'_',s,'.h5');
+        
+        % read in .h5 file
         h5path = fullfile(data.homepath,data.path,h5output);
         L(ii) = h5read(h5path,'/Data/L');
         xpc(ii) = h5read(h5path,'/Data/xpc');

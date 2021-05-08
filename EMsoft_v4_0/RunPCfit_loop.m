@@ -223,6 +223,7 @@ fprintf(fid,'\n\nFitted pattern center (average of %g patterns):\n',N);
 fprintf(fid,'  xpc = %.4f (X* = %.6f)\n',xpc_ave,xpc_ave_frac);
 fprintf(fid,'  ypc = %.4f (Y* = %.6f)\n',ypc_ave,ypc_ave_frac);
 fprintf(fid,'  L = %.2f (Z* = %.6f)',L_ave,L_ave_frac);
+fprintf(fid,'\n');
 fclose(fid);
 
 fprintf('Summarized data stored in txt file: %s\n',summarypath);
